@@ -37,6 +37,7 @@ require("Hero.php");
                 <input name="affiliation" type="text" class="form-control" id="affiliation">
             </div>
             <button type="submit" class="btn btn-primary">Soumettre</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='Index.php'">Retour à la liste</button>
     </form>
 
     <?php
@@ -86,6 +87,11 @@ require("Hero.php");
 
             $db->commit();
 
+            echo '<div class="alert alert-success" role="alert"> Le Héro à bien était enregistrer';
+
+        }
+        else{
+            echo '<div class="alert alert-danger" role="alert"> Création du héro impossible verifier les informations';
         }
 
 
