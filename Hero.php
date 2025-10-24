@@ -8,9 +8,6 @@ class Hero
 
 
     //méthodes
-    public function avancer(){
-        echo"je suis une ".$this->marque." et J'avance, ";
-    }
     public function __construct($nom, $capacite)
     {
         $this->nom = $nom;
@@ -31,6 +28,10 @@ class Hero
     public function setCapacite($valeur)
     {
         $this->Capacite =$valeur;
+    }
+
+    public function __toString(){
+        return "".$this->nom."".$this->capacite;
     }
 
 }
