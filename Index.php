@@ -8,6 +8,9 @@
 
 </head>
 <body>
+<form action="Formulaire.php" method="post" style="padding: 1em;">
+    <button type="button" class="btn btn-primary" onclick="location.href='Formulaire_Crea.php'">+ Ajouter un SuperHero</button>
+</form>
 <form action="bdd.sql" method="get">
     <label for="search">Rechercher</label>
     <input type="text" name="search" id="search">

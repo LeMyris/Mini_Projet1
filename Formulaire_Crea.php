@@ -14,21 +14,34 @@ require("Hero.php");
 
 </head>
 <body>
+
     <form action="Formulaire.php" method="post" style="padding: 1em;">
             <div class="mb-3">
                 <label for="nom" class="form-label" style="font-weight: bold;" >Nom du Héro</label>
                 <input name="nom" type="text" class="form-control" id="nom">
             </div>
             <div class="mb-3">
-                <label for="capacite" class="form-label" style="font-weight: bold;" >Capacité du Héro</label>
+                <label for="alias" class="form-label" style="font-weight: bold;" >Alias</label>
+                <input name="alias" type="text" class="form-control" id="alias">
+            </div>
+            <div class="mb-3">
+                <label for="capacite" class="form-label" style="font-weight: bold;" >Capacité</label>
                 <input name="capacite" type="text" class="form-control" id="capacite">
+            </div>
+            <div class="mb-3">
+                <label for="origine" class="form-label" style="font-weight: bold;" >Origine</label>
+                <input name="origine" type="text" class="form-control" id="origine">
+            </div>
+            <div class="mb-3">
+                <label for="affiliation" class="form-label" style="font-weight: bold;" >Affiliation</label>
+                <input name="affiliation" type="text" class="form-control" id="affiliation">
             </div>
             <button type="submit" class="btn btn-primary">Soumettre</button>
     </form>
 
     <?php
 
-        if(isset($_POST["nom"])&&($_POST["capacite"])){
+        if(isset($_POST["nom"]) && ($_POST["alias"]) && ($_POST["capacite"]) && ($_POST["origine"]) && ($_POST["affiliation"])){
             $nom = $_POST['nom'];
             $capacite = $_POST['capacite'];
 
