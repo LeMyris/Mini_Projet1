@@ -2,16 +2,28 @@
 
 class Hero
 {
-    //attriburs
+    //attributs
+    private $id;
     private $nom;
+    private $alias;
     private $capacite;
-
+    private $origine;
+    private $affiliation;
 
     //méthodes
     public function __construct($nom, $capacite)
     {
         $this->nom = $nom;
         $this->capacite = $capacite;
+    }
+    
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function setId($valeur)
+    {
+        $this->id =$valeur;
     }
     public function getNom()
     {
@@ -21,6 +33,16 @@ class Hero
     {
         $this->nom =$valeur;
     }
+
+    public function getAlias()
+    {
+        return $this->alias;
+    }
+    public function setAlias($valeur)
+    {
+        $this->alias =$valeur;
+    }
+
     public function getCapacite()
     {
         return $this->capacite;
@@ -30,8 +52,26 @@ class Hero
         $this->Capacite =$valeur;
     }
 
+    public function getOrigine()
+    {
+        return $this->origine;
+    }
+    public function setOrigine($valeur)
+    {
+        $this->origine =$valeur;
+    }
+
+    public function getAffiliation()
+    {
+        return $this->affiliation;
+    }
+    public function setAffiliation($valeur)
+    {
+        $this->affiliation =$valeur;
+    }
+
     public function __toString(){
-        return "".$this->nom."".$this->capacite;
+        return " ".$this->id ." ".$this->nom." ".$this->alias." ".$this->capacite." ".$this->origine." ".$this->affiliation;
     }
 
 }
