@@ -11,10 +11,14 @@ class Hero
     private $affiliation;
 
     //méthodes
-    public function __construct($nom, $capacite)
+    public function __construct($id, $nom, $alias, $capacite, $origine, $affiliation)
     {
+        $this->id = $id;
         $this->nom = $nom;
+        $this->alias = $alias;
         $this->capacite = $capacite;
+        $this->origine = $origine;
+        $this->affiliation = $affiliation;
     }
     
     public function getId()
