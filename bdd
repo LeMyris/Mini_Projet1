@@ -1,0 +1,4 @@
+CREATE DATABASE SuperHero;
+
+CREATE TABLE Hero ()
+
