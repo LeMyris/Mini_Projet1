@@ -11,7 +11,7 @@ class Hero
     private $affiliation;
 
     //méthodes
-    public function __construct($id, $nom, $alias, $capacite, $origine, $affiliation)
+    public function __construct($id=0, $nom="", $alias="", $capacite="", $origine="", $affiliation="")
     {
         $this->id = $id;
         $this->nom = $nom;

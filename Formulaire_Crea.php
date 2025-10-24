@@ -15,7 +15,7 @@ require("Hero.php");
 </head>
 <body>
 
-    <form action="Formulaire.php" method="post" style="padding: 1em;">
+    <form action="Formulaire_Crea.php" method="post" style="padding: 1em;">
             <div class="mb-3">
                 <label for="nom" class="form-label" style="font-weight: bold;" >Nom du Héro</label>
                 <input name="nom" type="text" class="form-control" id="nom">
@@ -42,16 +42,50 @@ require("Hero.php");
     <?php
 
         if(isset($_POST["nom"]) && ($_POST["alias"]) && ($_POST["capacite"]) && ($_POST["origine"]) && ($_POST["affiliation"])){
+            $id = 0;
             $nom = $_POST['nom'];
+            $alias = $_POST['alias'];
             $capacite = $_POST['capacite'];
+            $origine = $_POST['origine'];
+            $affiliation = $_POST['affiliation'];
 
-            $hero = new Hero($nom, $capacite);
+            $user="root";
+            $pass="";
+            $dbname="SuperHero";
+            $host="localhost";
 
-            $heros[]=$hero;
-            $_SESSION["heros"] = $heros;
-            foreach($heros as $hero){
-                echo $hero;
+            $db=new PDO("mysql:host=$host;dbname=$dbname",$user,$pass);
+            $requete="";
+
+            $requete=$db->query("select * from hero");
+            $requete->setFetchMode(PDO::FETCH_CLASS,'hero');
+            $heros=$requete->fetchAll();
+
+            foreach ($heros as $hero) {
+                $id++;
             }
+
+            $hero = new Hero($id,$nom,$alias,$capacite,$origine,$affiliation);
+
+            $db->beginTransaction();
+
+            $sql = 'INSERT INTO hero
+                (id,nom,alias,capacite,origine,affiliation ) 
+                VALUES (?,?,?,?,?,?)';
+
+            $sth = $db->prepare($sql);
+
+            $sth->execute(array(
+                    $hero->getId(),
+                    $hero->getNom(),
+                    $hero->getAlias(),
+                    $hero->getCapacite(),
+                    $hero->getOrigine(),
+                    $hero->getAffiliation()
+                ));
+
+            $db->commit();
+
         }
 
 

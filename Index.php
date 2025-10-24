@@ -52,7 +52,6 @@
     else $requete=$db->query("select * from hero");
 
     $requete->setFetchMode(PDO::FETCH_CLASS,'hero');
-
     $heros=$requete->fetchAll();
 
 
